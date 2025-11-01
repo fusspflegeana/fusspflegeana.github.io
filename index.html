@@ -66,4 +66,204 @@
         0 0 15px rgba(255,255,255,0.7),
         0 0 40px rgba(255,255,255,0.5),
         0 0 60px rgba(240,230,200,0.25),
-        inset 0 0 6px rgba(255,255,255,0
+        inset 0 0 6px rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.07);
+      background: #fff;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      background-color: #0a0a0a;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: .03em;
+      border: 1px solid #0a0a0a;
+    }
+
+    .primary-btn-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.2;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+
+<body class="text-neutral-900 antialiased tracking-tight">
+
+  <!-- HEADER -->
+  <header class="header-bg">
+    <div class="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center justify-center text-center">
+
+      <!-- ЛОГО -->
+      <img src="logo-fa.png" alt="Fußpflege Ana Logo"
+           class="w-28 h-28 object-cover object-center rounded-full logo-glow mb-6" />
+
+      <!-- НАЗВАНИЕ В ОДНУ СТРОКУ, БУКВЫ БЛИЖЕ -->
+      <h1 class="text-white text-[2.4rem] sm:text-[2.8rem] md:text-[3rem] font-light uppercase tracking-[0.15em] leading-tight">
+        FUSSPFLEGE ANA
+      </h1>
+
+      <!-- СЛОГАН ЧУТЬ КРУПНЕЕ -->
+      <p class="text-white/90 text-base sm:text-lg font-light mt-4">
+        Bei uns läuft’s seit 12 Jahren!
+      </p>
+
+      <!-- ПРО ТВОЮ РАБОТУ (3 предложения) -->
+      <p class="text-white/70 text-sm sm:text-base font-light leading-relaxed max-w-xl mt-6">
+        Sanfte, ruhige und hygienische Behandlung ohne Hektik. <br>
+        Präzise, saubere Ausarbeitung jedes Nagels und jeder Hautstelle – mit Fokus auf ein ästhetisch gleichmäßiges Ergebnis. <br>
+        Individuelle 1:1 Betreuung in diskreter Atmosphäre oder auf Wunsch auch als Hausbesuch.
+      </p>
+
+      <!-- КНОПКА ЗАПИСИ НА ТЕРМИН -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <a href="#kontakt" class="primary-btn-light">
+          Termin buchen
+        </a>
+        <a href="https://wa.me/491732012080" class="primary-btn-light">
+          WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- PREISLISTE -->
+  <section id="preise" class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
+    <h2 class="text-2xl lg:text-3xl font-light text-neutral-900 mb-8 tracking-tight">
+      Preisliste
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
+      <div class="flex flex-col gap-4">
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Kontrolle</div>
+          <div class="text-neutral-900 text-base font-light">20€</div>
+        </div>
+
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Klassische Maniküre</div>
+          <div class="text-neutral-900 text-base font-light">35€</div>
+        </div>
+
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Express Fußpflege</div>
+          <div class="text-neutral-900 text-base font-light">35€</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Fußpflege Komplexbehandlung</div>
+          <div class="text-neutral-900 text-base font-light">65€</div>
+        </div>
+
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Spange</div>
+          <div class="text-neutral-900 text-base font-light">ab 40€</div>
+        </div>
+
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Aufpreis für Hausbesuch</div>
+          <div class="text-neutral-900 text-base font-light">100€</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ERGEBNISSE -->
+  <section id="ergebnisse" class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
+    <h2 class="text-2xl lg:text-3xl font-light text-neutral-900 mb-3 tracking-tight">
+      Sichtbare Pflegeergebnisse
+    </h2>
+
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div class="img-card">
+        <img src="vorher-nachher.png" alt="Vorher / Nachher" class="w-full h-auto object-cover" />
+      </div>
+
+      <div class="img-card">
+        <img src="steps1.png" alt="Schritt für Schritt" class="w-full h-auto object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="carrara border-t border-neutral-300/50">
+    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <div class="flex flex-col items-center text-center lg:items-start lg:text-left gap-4">
+        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden portrait-glow">
+          <img src="ana.jpg" alt="Frau Sidorova" class="w-full h-full object-cover object-center" />
+        </div>
+
+        <div class="text-neutral-900 text-base font-medium">
+          Frau Sidorova
+        </div>
+
+        <div class="text-neutral-500 text-sm font-light leading-relaxed max-w-xs">
+          Ruhige, saubere und präzise Fußpflege in München Giesing.
+          Persönliche 1:1 Betreuung – auch Hausbesuch möglich.
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-5 text-sm text-neutral-900 font-light leading-relaxed">
+
+        <div>
+          <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">Adresse</div>
+          <div class="text-neutral-900 text-base font-medium">
+            Balanstraße 95<br/>
+            81539 München (Giesing)
+          </div>
+        </div>
+
+        <div>
+          <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">Telefon</div>
+          <a href="tel:+491732012080" class="text-neutral-900 text-base font-medium">
+            +49 173 2012080
+          </a>
+        </div>
+
+        <div>
+          <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">WhatsApp</div>
+          <a href="https://wa.me/491732012080" class="whatsapp-btn w-max">
+            WhatsApp schreiben
+          </a>
+        </div>
+
+        <div class="text-[11px] text-neutral-500 font-light leading-snug">
+          Termine nach Vereinbarung · Diskret · 1:1
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-[11px] text-neutral-500 font-light leading-relaxed border-t border-neutral-300/50">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+      <div>
+        <div class="text-neutral-900 text-sm font-medium">Fußpflege Ana</div>
+        <div>Balanstraße 95 · 81539 München (Giesing)</div>
+        <div>Tel.: +49 173 2012080</div>
+      </div>
+      <div>© 2025 Fußpflege Ana – Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
