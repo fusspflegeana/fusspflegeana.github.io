@@ -32,6 +32,19 @@
       background: rgba(255,255,255,0.8);
     }
 
+    .portrait-glow {
+      border-radius: 9999px;
+      box-shadow:
+        0 0 15px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,255,255,0.5),
+        0 0 60px rgba(240,230,200,0.25),
+        inset 0 0 6px rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.07);
+      background: #fff;
+      object-fit: cover;
+      object-position: center;
+    }
+
     .img-card {
       border-radius: 1rem;
       overflow: hidden;
@@ -128,6 +141,18 @@
 
       <div class="img-card">
         <img src="steps1.png" alt="Schritt für Schritt" class="w-full h-auto object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO + NAME -->
+  <section class="max-w-6xl mx-auto px-6 py-12 text-center">
+    <div class="flex flex-col items-center gap-4">
+      <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden portrait-glow">
+        <img src="ana.jpg" alt="Frau Sidorova" class="w-full h-full object-cover object-center" />
+      </div>
+      <div class="text-neutral-900 text-base font-medium">
+        Frau Sidorova
       </div>
     </div>
   </section>
