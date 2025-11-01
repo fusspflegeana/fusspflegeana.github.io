@@ -12,7 +12,15 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* Carrara-marmorierter Hintergrund */
+    /* Верхний фон */
+    .header-bg {
+      background-image: url("bg.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+    }
+
     .carrara {
       background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/marble-pattern.png");
       background-size: cover;
@@ -21,7 +29,6 @@
       background-attachment: fixed;
     }
 
-    /* Karten und Bildrahmen */
     .card {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
@@ -29,6 +36,7 @@
       border-radius: 1rem;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     }
+
     .img-card {
       border-radius: 1rem;
       overflow: hidden;
@@ -37,7 +45,6 @@
       background: #fff;
     }
 
-    /* Фарфоровое сияние */
     .logo-glow {
       border-radius: 50%;
       box-shadow:
@@ -46,13 +53,6 @@
         0 0 60px rgba(240,230,200,0.3),
         inset 0 0 6px rgba(255,255,255,0.8);
       transition: all 0.5s ease;
-    }
-    .logo-glow:hover {
-      box-shadow:
-        0 0 25px rgba(255,255,255,0.9),
-        0 0 70px rgba(240,230,200,0.4),
-        inset 0 0 10px rgba(255,255,255,1);
-      transform: scale(1.03);
     }
 
     .portrait-glow {
@@ -81,102 +81,27 @@
       letter-spacing: .03em;
       border: 1px solid #0a0a0a;
     }
-    .whatsapp-btn:hover {
-      background-color: #2a2a2a;
-    }
-
   </style>
 </head>
 
 <body class="text-neutral-900 antialiased tracking-tight">
   <!-- HEADER -->
-  <header class="carrara">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-        <div class="flex flex-col sm:flex-row sm:items-start sm:gap-4">
-          <!-- LOGO -->
-          <div class="flex-shrink-0">
-            <img src="logo-fa.png" alt="Fußpflege Ana Logo"
-                 class="w-20 h-20 object-cover object-center border border-neutral-200 bg-white logo-glow" />
-          </div>
+  <header class="header-bg">
+    <div class="max-w-6xl mx-auto px-6 py-16 flex flex-col items-center justify-center text-center">
+      <img src="logo-fa.png" alt="Fußpflege Ana Logo"
+           class="w-28 h-28 object-cover object-center border border-white/20 bg-white/80 rounded-full logo-glow mb-6" />
 
-          <!-- BRAND -->
-          <div class="flex flex-col justify-center">
-            <div class="text-2xl font-light uppercase tracking-[0.25em]">
-              Fußpflege Ana
-            </div>
-            <div class="text-sm text-neutral-500 leading-tight">
-              Bei uns läuft’s seit 12 Jahren
-            </div>
-          </div>
-        </div>
+      <!-- Название крупнее, как в index1.html -->
+      <h1 class="text-white text-[3rem] sm:text-[3.5rem] md:text-[4rem] font-light tracking-[0.4em] uppercase leading-tight">
+        Fußpflege Ana
+      </h1>
 
-        <div class="text-right">
-          <a href="tel:+491732012080" class="block text-lg font-medium leading-tight">
-            +49 173 2012080
-          </a>
-          <div class="text-xs text-neutral-500 leading-tight">
-            Balanstraße 95<br>81539 München (Giesing)
-          </div>
-        </div>
-      </div>
+      <p class="text-white/80 text-sm sm:text-base font-light mt-3">
+        Bei uns läuft’s seit 12 Jahren
+      </p>
 
-      <!-- HERO -->
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-        <div class="flex flex-col gap-6">
-          <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-neutral-900">
-            Fußpflege Ana
-          </h1>
-
-          <p class="text-base text-neutral-600 leading-relaxed max-w-md font-light">
-            Gepflegte Füße und Hände durch saubere, ruhige und präzise Arbeitsweise.
-            Fokus auf ein gleichmäßiges, gepflegtes Erscheinungsbild und ein angenehmes Gefühl während der Behandlung.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="https://wa.me/491732012080"
-               class="inline-flex items-center justify-center rounded-2xl bg-neutral-900 text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-800 transition">
-              Termin über WhatsApp
-            </a>
-            <a href="tel:+491732012080"
-               class="inline-flex items-center justify-center rounded-2xl border border-neutral-900 text-neutral-900 px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-900 hover:text-white transition">
-              Anrufen
-            </a>
-          </div>
-
-          <div class="text-[11px] text-neutral-500 leading-snug max-w-sm font-light">
-            Termin nach Vereinbarung · Diskrete 1:1 Betreuung
-          </div>
-        </div>
-
-        <div class="relative card overflow-hidden">
-          <div class="p-8 lg:p-10 flex flex-col gap-4">
-            <div class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-light">
-              Schwerpunkte
-            </div>
-            <ul class="grid grid-cols-2 gap-4 text-sm text-neutral-900 font-light">
-              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
-                Nagelpflege<br>
-                <span class="text-[11px] text-neutral-500">Form, Kürzen, Glätten</span>
-              </li>
-              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
-                Sanfte Hornhautentfernung<br>
-                <span class="text-[11px] text-neutral-500">glattes Hautbild</span>
-              </li>
-              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
-                Pflege-Finish<br>
-                <span class="text-[11px] text-neutral-500">gepflegtes Erscheinungsbild</span>
-              </li>
-              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
-                Hausbesuch möglich<br>
-                <span class="text-[11px] text-neutral-500">nach Absprache</span>
-              </li>
-            </ul>
-            <div class="text-[10px] text-neutral-400 text-right font-light mt-4">
-              Ruhige, kontrollierte Arbeitsweise
-            </div>
-          </div>
-        </div>
+      <div class="text-white/70 text-sm font-light mt-4">
+        Balanstraße 95 · 81539 München (Giesing) · Tel. <a href="tel:+491732012080" class="underline hover:text-white">+49 173 2012080</a>
       </div>
     </div>
   </header>
@@ -235,10 +160,9 @@
     </div>
   </section>
 
-  <!-- KONTAKT (с твоим фото) -->
+  <!-- KONTAKT -->
   <section id="kontakt" class="carrara border-t border-neutral-300/50">
     <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-      <!-- Фото слева -->
       <div class="flex flex-col items-center text-center lg:items-start lg:text-left gap-4">
         <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden portrait-glow">
           <img src="ana.jpg" alt="Frau Sidorova" class="w-full h-full object-cover object-center" />
@@ -251,7 +175,6 @@
         </div>
       </div>
 
-      <!-- Контакт справа -->
       <div class="flex flex-col gap-5 text-sm text-neutral-900 font-light leading-relaxed">
         <div>
           <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">Adresse</div>
@@ -282,7 +205,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="max-w-6xl mx-auto px-6 py-12 text-[11px] text-neutral-500 font-light leading-relaxed border-t border-neutral-300/50">
     <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
       <div>
