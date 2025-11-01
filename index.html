@@ -6,39 +6,23 @@
   <title>Fußpflege Ana</title>
   <meta name="description" content="Fußpflege Ana – Sanfte, präzise Fußpflege in München Giesing. Bei uns läuft’s seit 12 Jahren. Hausbesuche möglich.">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     body {
       background: #fafafa;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* ===== HERO DARK HEADER (чёрный камень фон) ===== */
-    .hero-dark {
-      position: relative;
-      background-image: url("bg.jpg"); /* твой чёрный камень */
+    /* >>>>> НОВОЕ: Тёмный графитовый фон только в шапке */
+    .hero-header {
+      background-image: url("header-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: #0a0a0a;
-      color: #fff;
+      background-color: #1a1a1a; /* запасной цвет если фон не загрузился */
+      color: #ffffff;
     }
 
-    /* лёгкая тёмная вуаль сверху камня чтобы текст читался */
-    .hero-dark::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-    }
-
-    /* контент внутри хедера поверх */
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ===== Carrara мрамор (остальные секции как раньше) ===== */
+    /* Carrara мрамор — как было, для нижних блоков */
     .carrara {
       background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/marble-pattern.png");
       background-size: cover;
@@ -47,7 +31,7 @@
       background-attachment: fixed;
     }
 
-    /* Карточки (цены, боксы) */
+    /* Карточки */
     .card {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
@@ -55,7 +39,6 @@
       border-radius: 1rem;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     }
-
     .img-card {
       border-radius: 1rem;
       overflow: hidden;
@@ -64,7 +47,7 @@
       background: #fff;
     }
 
-    /* Подсветка логотипа (фарфор) */
+    /* свечение логотипа */
     .logo-glow {
       border-radius: 50%;
       box-shadow:
@@ -73,8 +56,6 @@
         0 0 60px rgba(240,230,200,0.3),
         inset 0 0 6px rgba(255,255,255,0.8);
       transition: all 0.5s ease;
-      background-color: #ffffff; /* чтобы бежевый значок чётко читался на тёмном фоне */
-      border: 1px solid rgba(255,255,255,0.4);
     }
     .logo-glow:hover {
       box-shadow:
@@ -97,6 +78,7 @@
       object-position: center;
     }
 
+    /* кнопка WhatsApp (тёмная версия была для светлого фона) */
     .whatsapp-btn {
       display: inline-flex;
       align-items: center;
@@ -114,87 +96,227 @@
       background-color: #2a2a2a;
     }
 
-    /* Люксовое имя бренда — засечки, толстые буквы, разрядка */
-    .brand-name {
-      font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      line-height: 1.2;
-      color: #ffffff;
-    }
-
-    .brand-tagline {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-weight: 300;
-      line-height: 1.4;
-      color: rgba(255,255,255,0.8);
-    }
-
-    .contact-block a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-    .contact-block a:hover {
-      color: #ffffff;
-    }
-    .contact-block small {
-      color: rgba(255,255,255,0.7);
-    }
-
-    /* дополнительные стили под секцию онлайн-записи */
-    .booking-card {
-      background: #ffffff;
-      border-radius: 1rem;
-      border: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.07);
-    }
   </style>
 </head>
 
 <body class="text-neutral-900 antialiased tracking-tight">
 
-  <!-- ================= HEADER (тёмный фон с камнем) ================= -->
-  <header class="hero-dark">
-    <div class="hero-inner max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
+  <!-- HEADER с тёмным фоном -->
+  <header class="hero-header">
+    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
 
-      <!-- верхняя строка логотип / бренд / телефон -->
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+      <!-- верхняя часть: логотип + название + контакты -->
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
         <div class="flex flex-col sm:flex-row sm:items-start sm:gap-4">
+
           <!-- LOGO -->
           <div class="flex-shrink-0">
             <img src="logo-fa.png" alt="Fußpflege Ana Logo"
-                 class="w-20 h-20 object-cover object-center logo-glow" />
+                 class="w-24 h-24 object-cover object-center border border-white/20 bg-white/90 rounded-full logo-glow" />
           </div>
 
           <!-- BRAND TEXT -->
           <div class="flex flex-col justify-center">
-            <div class="brand-name text-2xl">
-              Fußpflege&nbsp;Ana
+            <!-- Название крупнее и белым -->
+            <div class="text-[2rem] leading-none lg:text-[2.5rem] font-light uppercase tracking-[0.3em] text-white">
+              Fußpflege Ana
             </div>
-            <div class="brand-tagline text-sm leading-tight">
+            <!-- Слоган полупрозрачно белым -->
+            <div class="text-sm lg:text-base text-white/70 leading-tight font-light pt-2">
               Bei uns läuft’s seit 12 Jahren
             </div>
           </div>
         </div>
 
-        <!-- PHONE / ADRESSE справа -->
-        <div class="text-right contact-block">
-          <a href="tel:+491732012080" class="block text-lg font-medium leading-tight text-white">
-            +49&nbsp;173&nbsp;2012080
+        <!-- Контакты справа -->
+        <div class="text-left sm:text-right">
+          <a href="tel:+491732012080"
+             class="block text-lg lg:text-xl font-medium leading-tight text-white">
+            +49 173 2012080
           </a>
-          <div class="text-xs leading-tight">
-            <small>Balanstraße&nbsp;95<br>81539&nbsp;München&nbsp;(Giesing)</small>
+          <div class="text-xs text-white/60 leading-tight font-light">
+            Balanstraße 95<br>81539 München (Giesing)
           </div>
         </div>
       </div>
 
-      <!-- HERO TEXT + CTA -->
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start text-white">
+      <!-- HERO блок с описанием и кнопками -->
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+        <!-- Левая колонка: текст -->
         <div class="flex flex-col gap-6">
           <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-white">
             Fußpflege Ana
           </h1>
 
-          <p class="text-base leading-relaxed max-w-md font-light text-white/80">
-            Gepflegte Füße und Hände durch saubere, ruh
+          <p class="text-base text-white/80 leading-relaxed max-w-md font-light">
+            Gepflegte Füße und Hände durch saubere, ruhige und präzise Arbeitsweise.
+            Fokus auf ein gleichmäßiges, gepflegtes Erscheinungsbild und ein angenehmes Gefühl während der Behandlung.
+          </p>
+
+          <!-- КНОПКИ: делаем инверсию под тёмный фон -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/491732012080"
+               class="inline-flex items-center justify-center rounded-2xl bg-white text-black px-6 py-3 text-sm font-medium tracking-wide border border-white hover:bg-white/90 transition">
+              Termin über WhatsApp
+            </a>
+            <a href="tel:+491732012080"
+               class="inline-flex items-center justify-center rounded-2xl border border-white text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-white hover:text-black transition">
+              Anrufen
+            </a>
+          </div>
+
+          <div class="text-[11px] text-white/60 leading-snug max-w-sm font-light">
+            Termin nach Vereinbarung · Diskrete 1:1 Betreuung
+          </div>
+        </div>
+
+        <!-- Правая колонка: карточка “Schwerpunkte” остаётся светлой для контраста -->
+        <div class="relative card overflow-hidden bg-white/90 backdrop-blur-md border border-white/20 shadow-xl shadow-black/30">
+          <div class="p-8 lg:p-10 flex flex-col gap-4 text-neutral-900">
+            <div class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-light">
+              Schwerpunkte
+            </div>
+            <ul class="grid grid-cols-2 gap-4 text-sm text-neutral-900 font-light">
+              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
+                Nagelpflege<br>
+                <span class="text-[11px] text-neutral-500">Form, Kürzen, Glätten</span>
+              </li>
+              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
+                Sanfte Hornhautentfernung<br>
+                <span class="text-[11px] text-neutral-500">glattes Hautbild</span>
+              </li>
+              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
+                Pflege-Finish<br>
+                <span class="text-[11px] text-neutral-500">gepflegtes Erscheinungsbild</span>
+              </li>
+              <li class="bg-white/70 rounded-xl border border-neutral-200 p-4 leading-snug">
+                Hausbesuch möglich<br>
+                <span class="text-[11px] text-neutral-500">nach Absprache</span>
+              </li>
+            </ul>
+            <div class="text-[10px] text-neutral-400 text-right font-light mt-4">
+              Ruhige, kontrollierte Arbeitsweise
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PREISLISTE -->
+  <section id="preise" class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
+    <h2 class="text-2xl lg:text-3xl font-light text-neutral-900 mb-8 tracking-tight">
+      Preisliste
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-10">
+      <div class="flex flex-col gap-4">
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Kontrolle</div>
+          <div class="text-neutral-900 text-base font-light">20€</div>
+        </div>
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Klassische Maniküre</div>
+          <div class="text-neutral-900 text-base font-light">35€</div>
+        </div>
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Express Fußpflege</div>
+          <div class="text-neutral-900 text-base font-light">35€</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Fußpflege Komplexbehandlung</div>
+          <div class="text-neutral-900 text-base font-light">65€</div>
+        </div>
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Spange</div>
+          <div class="text-neutral-900 text-base font-light">ab 40€</div>
+        </div>
+        <div class="card p-6 flex items-baseline justify-between">
+          <div class="text-neutral-900 text-base font-medium">Aufpreis für Hausbesuch</div>
+          <div class="text-neutral-900 text-base font-light">100€</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ERGEBNISSE -->
+  <section id="ergebnisse" class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
+    <h2 class="text-2xl lg:text-3xl font-light text-neutral-900 mb-3 tracking-tight">
+      Sichtbare Pflegeergebnisse
+    </h2>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div class="img-card">
+        <img src="vorher-nachher.png" alt="Vorher / Nachher" class="w-full h-auto object-cover" />
+      </div>
+      <div class="img-card">
+        <img src="steps1.png" alt="Schritt für Schritt" class="w-full h-auto object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="carrara border-t border-neutral-300/50">
+    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- Фото -->
+      <div class="flex flex-col items-center text-center lg:items-start lg:text-left gap-4">
+        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden portrait-glow">
+          <img src="ana.jpg" alt="Frau Sidorova" class="w-full h-full object-cover object-center" />
+        </div>
+        <div class="text-neutral-900 text-base font-medium">
+          Frau Sidorova
+        </div>
+        <div class="text-neutral-500 text-sm font-light leading-relaxed max-w-xs">
+          Ruhige, saubere und präzise Fußpflege in München Giesing. Persönliche 1:1 Betreuung – auch Hausbesuch möglich.
+        </div>
+      </div>
+
+      <!-- Контакт -->
+      <div class="flex flex-col gap-5 text-sm text-neutral-900 font-light leading-relaxed">
+        <div>
+          <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">Adresse</div>
+          <div class="text-neutral-900 text-base font-medium">
+            Balanstraße 95<br/>
+            81539 München (Giesing)
+          </div>
+        </div>
+
+        <div>
+          <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">Telefon</div>
+          <a href="tel:+491732012080" class="text-neutral-900 text-base font-medium">
+            +49 173 2012080
+          </a>
+        </div>
+
+        <div>
+          <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">WhatsApp</div>
+          <a href="https://wa.me/491732012080" class="whatsapp-btn w-max">
+            WhatsApp schreiben
+          </a>
+        </div>
+
+        <div class="text-[11px] text-neutral-500 font-light leading-snug">
+          Termine nach Vereinbarung · Diskret · 1:1
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-[11px] text-neutral-500 font-light leading-relaxed border-t border-neutral-300/50">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+      <div>
+        <div class="text-neutral-900 text-sm font-medium">Fußpflege Ana</div>
+        <div>Balanstraße 95 · 81539 München (Giesing)</div>
+        <div>Tel.: +49 173 2012080</div>
+      </div>
+      <div>© 2025 Fußpflege Ana – Alle Rechte vorbehalten.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
