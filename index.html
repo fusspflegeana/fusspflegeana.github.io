@@ -12,17 +12,7 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* >>>>> НОВОЕ: Тёмный графитовый фон только в шапке */
-    .hero-header {
-      background-image: url("header-bg.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #1a1a1a; /* запасной цвет если фон не загрузился */
-      color: #ffffff;
-    }
-
-    /* Carrara мрамор — как было, для нижних блоков */
+    /* Carrara-marmorierter Hintergrund */
     .carrara {
       background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/marble-pattern.png");
       background-size: cover;
@@ -31,7 +21,7 @@
       background-attachment: fixed;
     }
 
-    /* Карточки */
+    /* Karten und Bildrahmen */
     .card {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
@@ -47,7 +37,7 @@
       background: #fff;
     }
 
-    /* свечение логотипа */
+    /* Фарфоровое сияние */
     .logo-glow {
       border-radius: 50%;
       box-shadow:
@@ -78,7 +68,6 @@
       object-position: center;
     }
 
-    /* кнопка WhatsApp (тёмная версия была для светлого фона) */
     .whatsapp-btn {
       display: inline-flex;
       align-items: center;
@@ -100,80 +89,68 @@
 </head>
 
 <body class="text-neutral-900 antialiased tracking-tight">
-
-  <!-- HEADER с тёмным фоном -->
-  <header class="hero-header">
+  <!-- HEADER -->
+  <header class="carrara">
     <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
-
-      <!-- верхняя часть: логотип + название + контакты -->
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div class="flex flex-col sm:flex-row sm:items-start sm:gap-4">
-
           <!-- LOGO -->
           <div class="flex-shrink-0">
             <img src="logo-fa.png" alt="Fußpflege Ana Logo"
-                 class="w-24 h-24 object-cover object-center border border-white/20 bg-white/90 rounded-full logo-glow" />
+                 class="w-20 h-20 object-cover object-center border border-neutral-200 bg-white logo-glow" />
           </div>
 
-          <!-- BRAND TEXT -->
+          <!-- BRAND -->
           <div class="flex flex-col justify-center">
-            <!-- Название крупнее и белым -->
-            <div class="text-[2rem] leading-none lg:text-[2.5rem] font-light uppercase tracking-[0.3em] text-white">
+            <div class="text-2xl font-light uppercase tracking-[0.25em]">
               Fußpflege Ana
             </div>
-            <!-- Слоган полупрозрачно белым -->
-            <div class="text-sm lg:text-base text-white/70 leading-tight font-light pt-2">
+            <div class="text-sm text-neutral-500 leading-tight">
               Bei uns läuft’s seit 12 Jahren
             </div>
           </div>
         </div>
 
-        <!-- Контакты справа -->
-        <div class="text-left sm:text-right">
-          <a href="tel:+491732012080"
-             class="block text-lg lg:text-xl font-medium leading-tight text-white">
+        <div class="text-right">
+          <a href="tel:+491732012080" class="block text-lg font-medium leading-tight">
             +49 173 2012080
           </a>
-          <div class="text-xs text-white/60 leading-tight font-light">
+          <div class="text-xs text-neutral-500 leading-tight">
             Balanstraße 95<br>81539 München (Giesing)
           </div>
         </div>
       </div>
 
-      <!-- HERO блок с описанием и кнопками -->
+      <!-- HERO -->
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-
-        <!-- Левая колонка: текст -->
         <div class="flex flex-col gap-6">
-          <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-white">
+          <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-neutral-900">
             Fußpflege Ana
           </h1>
 
-          <p class="text-base text-white/80 leading-relaxed max-w-md font-light">
+          <p class="text-base text-neutral-600 leading-relaxed max-w-md font-light">
             Gepflegte Füße und Hände durch saubere, ruhige und präzise Arbeitsweise.
             Fokus auf ein gleichmäßiges, gepflegtes Erscheinungsbild und ein angenehmes Gefühl während der Behandlung.
           </p>
 
-          <!-- КНОПКИ: делаем инверсию под тёмный фон -->
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="https://wa.me/491732012080"
-               class="inline-flex items-center justify-center rounded-2xl bg-white text-black px-6 py-3 text-sm font-medium tracking-wide border border-white hover:bg-white/90 transition">
+               class="inline-flex items-center justify-center rounded-2xl bg-neutral-900 text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-800 transition">
               Termin über WhatsApp
             </a>
             <a href="tel:+491732012080"
-               class="inline-flex items-center justify-center rounded-2xl border border-white text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-white hover:text-black transition">
+               class="inline-flex items-center justify-center rounded-2xl border border-neutral-900 text-neutral-900 px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-900 hover:text-white transition">
               Anrufen
             </a>
           </div>
 
-          <div class="text-[11px] text-white/60 leading-snug max-w-sm font-light">
+          <div class="text-[11px] text-neutral-500 leading-snug max-w-sm font-light">
             Termin nach Vereinbarung · Diskrete 1:1 Betreuung
           </div>
         </div>
 
-        <!-- Правая колонка: карточка “Schwerpunkte” остаётся светлой для контраста -->
-        <div class="relative card overflow-hidden bg-white/90 backdrop-blur-md border border-white/20 shadow-xl shadow-black/30">
-          <div class="p-8 lg:p-10 flex flex-col gap-4 text-neutral-900">
+        <div class="relative card overflow-hidden">
+          <div class="p-8 lg:p-10 flex flex-col gap-4">
             <div class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-light">
               Schwerpunkte
             </div>
@@ -258,11 +235,10 @@
     </div>
   </section>
 
-  <!-- KONTAKT -->
+  <!-- KONTAKT (с твоим фото) -->
   <section id="kontakt" class="carrara border-t border-neutral-300/50">
     <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-
-      <!-- Фото -->
+      <!-- Фото слева -->
       <div class="flex flex-col items-center text-center lg:items-start lg:text-left gap-4">
         <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden portrait-glow">
           <img src="ana.jpg" alt="Frau Sidorova" class="w-full h-full object-cover object-center" />
@@ -275,7 +251,7 @@
         </div>
       </div>
 
-      <!-- Контакт -->
+      <!-- Контакт справа -->
       <div class="flex flex-col gap-5 text-sm text-neutral-900 font-light leading-relaxed">
         <div>
           <div class="text-neutral-500 uppercase text-[11px] tracking-[0.2em] font-light">Adresse</div>
@@ -317,6 +293,5 @@
       <div>© 2025 Fußpflege Ana – Alle Rechte vorbehalten.</div>
     </div>
   </footer>
-
 </body>
 </html>
