@@ -6,13 +6,39 @@
   <title>Fußpflege Ana</title>
   <meta name="description" content="Fußpflege Ana – Sanfte, präzise Fußpflege in München Giesing. Bei uns läuft’s seit 12 Jahren. Hausbesuche möglich.">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
       background: #fafafa;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* Carrara-marmorierter Hintergrund */
+    /* ===== HERO DARK HEADER (чёрный камень фон) ===== */
+    .hero-dark {
+      position: relative;
+      background-image: url("bg.jpg"); /* твой чёрный камень */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+
+    /* лёгкая тёмная вуаль сверху камня чтобы текст читался */
+    .hero-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    /* контент внутри хедера поверх */
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Carrara мрамор (остальные секции как раньше) ===== */
     .carrara {
       background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/marble-pattern.png");
       background-size: cover;
@@ -21,7 +47,7 @@
       background-attachment: fixed;
     }
 
-    /* Karten und Bildrahmen */
+    /* Карточки (цены, боксы) */
     .card {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
@@ -29,6 +55,7 @@
       border-radius: 1rem;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     }
+
     .img-card {
       border-radius: 1rem;
       overflow: hidden;
@@ -37,7 +64,7 @@
       background: #fff;
     }
 
-    /* Фарфоровое сияние */
+    /* Подсветка логотипа (фарфор) */
     .logo-glow {
       border-radius: 50%;
       box-shadow:
@@ -46,6 +73,8 @@
         0 0 60px rgba(240,230,200,0.3),
         inset 0 0 6px rgba(255,255,255,0.8);
       transition: all 0.5s ease;
+      background-color: #ffffff; /* чтобы бежевый значок чётко читался на тёмном фоне */
+      border: 1px solid rgba(255,255,255,0.4);
     }
     .logo-glow:hover {
       box-shadow:
@@ -85,71 +114,103 @@
       background-color: #2a2a2a;
     }
 
+    /* Люксовое имя бренда — засечки, толстые буквы, разрядка */
+    .brand-name {
+      font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .brand-tagline {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .contact-block a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .contact-block a:hover {
+      color: #ffffff;
+    }
+    .contact-block small {
+      color: rgba(255,255,255,0.7);
+    }
   </style>
 </head>
 
 <body class="text-neutral-900 antialiased tracking-tight">
-  <!-- HEADER -->
-  <header class="carrara">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
+
+  <!-- ================= HEADER (тёмный фон с камнем) ================= -->
+  <header class="hero-dark">
+    <div class="hero-inner max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
+
+      <!-- верхняя строка логотип / бренд / телефон -->
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div class="flex flex-col sm:flex-row sm:items-start sm:gap-4">
           <!-- LOGO -->
           <div class="flex-shrink-0">
             <img src="logo-fa.png" alt="Fußpflege Ana Logo"
-                 class="w-20 h-20 object-cover object-center border border-neutral-200 bg-white logo-glow" />
+                 class="w-20 h-20 object-cover object-center logo-glow" />
           </div>
 
-          <!-- BRAND -->
+          <!-- BRAND TEXT -->
           <div class="flex flex-col justify-center">
-            <div class="text-2xl font-light uppercase tracking-[0.25em]">
-              Fußpflege Ana
+            <div class="brand-name text-2xl">
+              Fußpflege&nbsp;Ana
             </div>
-            <div class="text-sm text-neutral-500 leading-tight">
+            <div class="brand-tagline text-sm leading-tight">
               Bei uns läuft’s seit 12 Jahren
             </div>
           </div>
         </div>
 
-        <div class="text-right">
-          <a href="tel:+491732012080" class="block text-lg font-medium leading-tight">
-            +49 173 2012080
+        <!-- PHONE / ADRESSE справа -->
+        <div class="text-right contact-block">
+          <a href="tel:+491732012080" class="block text-lg font-medium leading-tight text-white">
+            +49&nbsp;173&nbsp;2012080
           </a>
-          <div class="text-xs text-neutral-500 leading-tight">
-            Balanstraße 95<br>81539 München (Giesing)
+          <div class="text-xs leading-tight">
+            <small>Balanstraße&nbsp;95<br>81539&nbsp;München&nbsp;(Giesing)</small>
           </div>
         </div>
       </div>
 
-      <!-- HERO -->
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+      <!-- HERO TEXT + CTA -->
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start text-white">
         <div class="flex flex-col gap-6">
-          <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-neutral-900">
+          <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-white">
             Fußpflege Ana
           </h1>
 
-          <p class="text-base text-neutral-600 leading-relaxed max-w-md font-light">
+          <p class="text-base leading-relaxed max-w-md font-light text-white/80">
             Gepflegte Füße und Hände durch saubere, ruhige und präzise Arbeitsweise.
             Fokus auf ein gleichmäßiges, gepflegtes Erscheinungsbild und ein angenehmes Gefühl während der Behandlung.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="https://wa.me/491732012080"
-               class="inline-flex items-center justify-center rounded-2xl bg-neutral-900 text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-800 transition">
+               class="inline-flex items-center justify-center rounded-2xl bg-white text-neutral-900 px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-200 transition">
               Termin über WhatsApp
             </a>
             <a href="tel:+491732012080"
-               class="inline-flex items-center justify-center rounded-2xl border border-neutral-900 text-neutral-900 px-6 py-3 text-sm font-medium tracking-wide hover:bg-neutral-900 hover:text-white transition">
+               class="inline-flex items-center justify-center rounded-2xl border border-white text-white px-6 py-3 text-sm font-medium tracking-wide hover:bg-white hover:text-neutral-900 transition">
               Anrufen
             </a>
           </div>
 
-          <div class="text-[11px] text-neutral-500 leading-snug max-w-sm font-light">
+          <div class="text-[11px] leading-snug max-w-sm font-light text-white/60">
             Termin nach Vereinbarung · Diskrete 1:1 Betreuung
           </div>
         </div>
 
-        <div class="relative card overflow-hidden">
+        <!-- ПРАВАЯ КАРТОЧКА (Schwerpunkte) осталась светлой карточкой -->
+        <div class="relative card overflow-hidden bg-white/80 text-neutral-900">
           <div class="p-8 lg:p-10 flex flex-col gap-4">
             <div class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-light">
               Schwerpunkte
@@ -180,8 +241,10 @@
       </div>
     </div>
   </header>
+  <!-- ================= /HEADER ================= -->
 
-  <!-- PREISLISTE -->
+
+  <!-- ================= PREISLISTE ================= -->
   <section id="preise" class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
     <h2 class="text-2xl lg:text-3xl font-light text-neutral-900 mb-8 tracking-tight">
       Preisliste
@@ -219,8 +282,10 @@
       </div>
     </div>
   </section>
+  <!-- ================= /PREISLISTE ================= -->
 
-  <!-- ERGEBNISSE -->
+
+  <!-- ================= ERGEBNISSE ================= -->
   <section id="ergebnisse" class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
     <h2 class="text-2xl lg:text-3xl font-light text-neutral-900 mb-3 tracking-tight">
       Sichtbare Pflegeergebnisse
@@ -234,8 +299,10 @@
       </div>
     </div>
   </section>
+  <!-- ================= /ERGEBNISSE ================= -->
 
-  <!-- KONTAKT (с твоим фото) -->
+
+  <!-- ================= KONTAKT ================= -->
   <section id="kontakt" class="carrara border-t border-neutral-300/50">
     <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <!-- Фото слева -->
@@ -281,8 +348,10 @@
       </div>
     </div>
   </section>
+  <!-- ================= /KONTAKT ================= -->
 
-  <!-- FOOTER -->
+
+  <!-- ================= FOOTER ================= -->
   <footer class="max-w-6xl mx-auto px-6 py-12 text-[11px] text-neutral-500 font-light leading-relaxed border-t border-neutral-300/50">
     <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
       <div>
@@ -293,5 +362,7 @@
       <div>© 2025 Fußpflege Ana – Alle Rechte vorbehalten.</div>
     </div>
   </footer>
+  <!-- ================= /FOOTER ================= -->
+
 </body>
 </html>
