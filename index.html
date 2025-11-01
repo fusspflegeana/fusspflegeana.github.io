@@ -2,159 +2,199 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fusspflege Ana • Medizinische Fußpflege in Giesing</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Fußpflege Ana</title>
+  <meta name="description" content="Fußpflege Ana – Sanfte, präzise Fußpflege in München Giesing. Bei uns läuft’s seit 12 Jahren. Hausbesuche möglich.">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* БАЗА */
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      line-height: 1.45;
+      background: #fafafa;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    /* ===== ШАПКА С ФОНОМ ===== */
-    .hero {
-      background-image: url("bg.jpg"); /* <-- твой фон */
+    /* ===== HERO DARK HEADER (чёрный камень фон) ===== */
+    .hero-dark {
+      position: relative;
+      background-image: url("bg.jpg"); /* твой чёрный камень */
       background-size: cover;
       background-position: center;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      color: #ffffff;
+      background-repeat: no-repeat;
+      background-color: #0a0a0a;
+      color: #fff;
     }
 
-    /* затемнение сзади текста, чтобы белый шрифт читался на любом фоне */
+    /* лёгкая тёмная вуаль сверху камня чтобы текст читался */
+    .hero-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+
+    /* контент внутри хедера поверх */
     .hero-inner {
-      max-width: 600px;
-      margin: 0 auto;
-      background: rgba(0,0,0,0.4);
-      padding: 1.5rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Carrara мрамор (остальные секции как раньше) ===== */
+    .carrara {
+      background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/marble-pattern.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Карточки (цены, боксы) */
+    .card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,0,0,0.05);
       border-radius: 1rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     }
 
-    .brand {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: .05em;
-      margin: 0 0 .75rem 0;
-      color: #ffffff;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      font-weight: 400;
-      margin: 0 0 1rem 0;
-      color: #ffffff;
-      line-height: 1.5;
-    }
-
-    .contact-block {
-      font-size: 1rem;
-      font-weight: 500;
-      margin: 0;
-      color: #ffffff;
-      line-height: 1.5;
-    }
-
-    /* ===== ОНЛАЙН ЗАПИСЬ ===== */
-    .booking-section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
-    }
-
-    .booking-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: #000000;
-    }
-
-    .booking-note {
-      font-size: 0.95rem;
-      text-align: center;
-      color: #444444;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-    }
-
-    /* контейнер под виджет */
-    .booking-widget-frame {
-      width: 100%;
-      min-height: 900px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
+    .img-card {
+      border-radius: 1rem;
       overflow: hidden;
-      padding: 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
     }
 
-    /* ===== ПОДВАЛ ===== */
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555555;
-      padding: 2rem 1rem 4rem;
-      border-top: 1px solid #eee;
+    /* Подсветка логотипа (фарфор) */
+    .logo-glow {
+      border-radius: 50%;
+      box-shadow:
+        0 0 15px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,255,255,0.5),
+        0 0 60px rgba(240,230,200,0.3),
+        inset 0 0 6px rgba(255,255,255,0.8);
+      transition: all 0.5s ease;
+      background-color: #ffffff; /* чтобы бежевый значок чётко читался на тёмном фоне */
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .logo-glow:hover {
+      box-shadow:
+        0 0 25px rgba(255,255,255,0.9),
+        0 0 70px rgba(240,230,200,0.4),
+        inset 0 0 10px rgba(255,255,255,1);
+      transform: scale(1.03);
     }
 
-    /* Чуть более крупный текст на очень маленьких экранах */
-    @media (max-width: 400px) {
-      .brand {
-        font-size: 1.6rem;
-      }
+    .portrait-glow {
+      border-radius: 9999px;
+      box-shadow:
+        0 0 15px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,255,255,0.5),
+        0 0 60px rgba(240,230,200,0.25),
+        inset 0 0 6px rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.07);
+      background: #fff;
+      object-fit: cover;
+      object-position: center;
+    }
 
-      .tagline {
-        font-size: 0.95rem;
-      }
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      background-color: #0a0a0a;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: .03em;
+      border: 1px solid #0a0a0a;
+    }
+    .whatsapp-btn:hover {
+      background-color: #2a2a2a;
+    }
 
-      .contact-block {
-        font-size: 0.95rem;
-      }
+    /* Люксовое имя бренда — засечки, толстые буквы, разрядка */
+    .brand-name {
+      font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: #ffffff;
+    }
 
-      .booking-title {
-        font-size: 1.2rem;
-      }
+    .brand-tagline {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .contact-block a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .contact-block a:hover {
+      color: #ffffff;
+    }
+    .contact-block small {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* дополнительные стили под секцию онлайн-записи */
+    .booking-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.07);
     }
   </style>
 </head>
 
-<body>
+<body class="text-neutral-900 antialiased tracking-tight">
 
-  <!-- ВЕРХ С ФОНОМ -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1 class="brand">FUSSPFLEGE ANA</h1>
-      <p class="tagline">
-        Fußpflege ab 35€ • 12 Jahre Erfahrung<br/>
-        Eingewachsene Nägel · Hühneraugen · Schmerzen beim Laufen
-      </p>
-      <p class="contact-block">
-        Tel: +49&nbsp;173&nbsp;201&nbsp;2080<br/>
-        Balanstrasse 95, 81539 München-Giesing
-      </p>
-    </div>
-  </section>
+  <!-- ================= HEADER (тёмный фон с камнем) ================= -->
+  <header class="hero-dark">
+    <div class="hero-inner max-w-6xl mx-auto px-6 py-10 flex flex-col gap-10 lg:gap-16">
 
-  <!-- ОНЛАЙН ТЕРМИН -->
-  <section class="booking-section" id="online-termin">
-    <div class="booking-title">Online Termin buchen</div>
-    <div class="booking-note">
-      Bitte wählen Sie die Behandlung und eine freie Uhrzeit.<br/>
-      Vorname, Nachname, Telefonnummer und E-Mail sind erforderlich zur Bestätigung.
-    </div>
+      <!-- верхняя строка логотип / бренд / телефон -->
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:gap-4">
+          <!-- LOGO -->
+          <div class="flex-shrink-0">
+            <img src="logo-fa.png" alt="Fußpflege Ana Logo"
+                 class="w-20 h-20 object-cover object-center logo-glow" />
+          </div>
 
-    <div class="booking-widget-frame" id="sb-widget-container">
-      <!-- SimplyBook будет рендерить календарь и формы бронирования здесь -->
-    </div>
-  </section>
+          <!-- BRAND TEXT -->
+          <div class="flex flex-col justify-center">
+            <div class="brand-name text-2xl">
+              Fußpflege&nbsp;Ana
+            </div>
+            <div class="brand-tagline text-sm leading-tight">
+              Bei uns läuft’s seit 12 Jahren
+            </div>
+          </div>
+        </div>
 
-  <!-- ПОДВАЛ -->
-  <footer>
-    © Fusspflege Ana – Medizinische Fußpflege in Giesing. Termin nur mit Anmeldung.
-  </footer>
+        <!-- PHONE / ADRESSE справа -->
+        <div class="text-right contact-block">
+          <a href="tel:+491732012080" class="block text-lg font-medium leading-tight text-white">
+            +49&nbsp;173&nbsp;2012080
+          </a>
+          <div class="text-xs leading-tight">
+            <small>Balanstraße&nbsp;95<br>81539&nbsp;München&nbsp;(Giesing)</small>
+          </div>
+        </div>
+      </div>
 
-  <!-- СКРИПТ SIMPLYBOOK -->
-  <script src="//widget.simplybook.it/v2/widget/widget.js" type
+      <!-- HERO TEXT + CTA -->
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start text-white">
+        <div class="flex flex-col gap-6">
+          <h1 class="text-4xl lg:text-5xl font-light leading-[1.1] text-white">
+            Fußpflege Ana
+          </h1>
+
+          <p class="text-base leading-relaxed max-w-md font-light text-white/80">
+            Gepflegte Füße und Hände durch saubere, ruh
