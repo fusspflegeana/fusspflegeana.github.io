@@ -36,8 +36,6 @@ button {
   --muted: rgba(255,255,255,.66);
 }
 
-/* GENERAL */
-
 .slide {
   min-height: 100vh;
   position: relative;
@@ -120,7 +118,7 @@ p {
   box-shadow: 0 24px 80px rgba(255,255,255,.12);
 }
 
-/* 1. LOGO + NAVIGATION */
+/* LOGO + NAVIGATION */
 
 .intro-slide {
   display: flex;
@@ -143,52 +141,56 @@ p {
   gap: 42px;
 }
 
-/* NEW LOGO EFFECT */
+/* LOGO FLASH + FLOAT */
 
 .floating-logo {
   width: clamp(170px, 21vw, 280px);
   height: auto;
   border-radius: 50%;
   opacity: 0;
-  transform-origin: center bottom;
+  transform-origin: center;
+
   animation:
-    mercuryDrop 4.2s cubic-bezier(.18,.9,.28,1) forwards,
-    logoFloat 5.8s ease-in-out 4.2s infinite;
+    logoFlashReveal 1.2s ease-out forwards,
+    logoFloat 6s ease-in-out 1.2s infinite;
+
+  filter:
+    drop-shadow(0 0 36px rgba(255,255,255,.22))
+    drop-shadow(0 28px 80px rgba(255,255,255,.10));
 }
 
-@keyframes mercuryDrop {
+@keyframes logoFlashReveal {
   0% {
     opacity: 0;
-    transform: translateY(-180px) scale(.18, .18);
-    filter: blur(24px) drop-shadow(0 0 0 rgba(255,255,255,0));
+    transform: scale(.85);
+    filter:
+      brightness(0)
+      blur(12px)
+      drop-shadow(0 0 0 rgba(255,255,255,0));
   }
 
-  28% {
+  20% {
     opacity: 1;
-    transform: translateY(55px) scale(.62, 1.35);
-    filter: blur(10px) drop-shadow(0 0 18px rgba(255,255,255,.18));
+    transform: scale(1.12);
+    filter:
+      brightness(3)
+      blur(2px)
+      drop-shadow(0 0 80px rgba(255,255,255,.95));
   }
 
-  42% {
-    transform: translateY(80px) scale(1.55, .28);
-    filter: blur(8px) drop-shadow(0 0 34px rgba(255,255,255,.22));
-  }
-
-  56% {
-    transform: translateY(26px) scale(.82, 1.18);
-    filter: blur(5px) drop-shadow(0 0 38px rgba(255,255,255,.26));
-  }
-
-  72% {
-    transform: translateY(0) scale(1.08, .94);
-    filter: blur(2px) drop-shadow(0 0 42px rgba(255,255,255,.28));
+  50% {
+    transform: scale(.98);
+    filter:
+      brightness(1.4)
+      blur(0)
+      drop-shadow(0 0 45px rgba(255,255,255,.55));
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
     filter:
-      blur(0)
+      brightness(1)
       drop-shadow(0 0 36px rgba(255,255,255,.22))
       drop-shadow(0 28px 80px rgba(255,255,255,.10));
   }
@@ -196,15 +198,15 @@ p {
 
 @keyframes logoFloat {
   0% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-18px) scale(1.018);
+    transform: translateY(-18px);
   }
 
   100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -261,7 +263,7 @@ p {
   transform: translateY(-2px);
 }
 
-/* 2. HERO ANA */
+/* HERO ANA */
 
 .hero-ana {
   height: 100vh;
@@ -459,7 +461,7 @@ p {
   line-height: 1.6;
 }
 
-/* MATERIALIEN — NEW VERSION WITHOUT GLASS */
+/* MATERIALIEN — WITHOUT GLASS */
 
 .materialien-slide {
   min-height: 100vh;
